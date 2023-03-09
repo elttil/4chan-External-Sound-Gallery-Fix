@@ -82,6 +82,9 @@
                             if (mutation.type === "childList") {
                                 mutation.addedNodes.forEach(
                                     function(node) {
+                                        if (node.className === "sauce") {
+                                            node = node.parentNode.parentNode.parentNode;
+                                        }
                                         if (node.nodeType === Node.ELEMENT_NODE) {
                                             doParseFiles(node);
                                             doPlayFile(node);
